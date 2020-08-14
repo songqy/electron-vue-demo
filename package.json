@@ -1,0 +1,101 @@
+{
+  "name": "electron-vue-demo",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ./build/main.js",
+    "start-old": "electron .",
+    "build": "concurrently \"npm run build-main\" \"npm run build-preload\" \"npm run build-renderer\"",
+    "build-main": "npx webpack --config ./config/webpack.main.config.js",
+    "build-preload": "npx webpack --config ./config/webpack.preload.config.js",
+    "build-renderer": "npx webpack --config ./config/webpack.renderer.config.js",
+    "package-win": "npm run build && electron-builder build --win --x64",
+    "package-linux": "npm run build && electron-builder build --liux",
+    "package-mac": "npm run build && electron-builder build --mac"
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "vue",
+    "demo"
+  ],
+  "author": "songqy",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/node": "^12",
+    "@types/webpack": "^4.41.21",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "concurrently": "^5.3.0",
+    "electron": "^9.2.0",
+    "electron-builder": "^22.8.0",
+    "electron-devtools-installer": "^3.1.1",
+    "eslint": "^7.6.0",
+    "vue-loader": "^15.9.3",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-merge": "^5.1.1",
+    "webpack-node-externals": "^2.5.0"
+  },
+  "dependencies": {
+    "vue": "^2.6.11",
+    "vue-router": "^3.4.3",
+    "vuex": "^3.5.1"
+  },
+  "build": {
+    "productName": "ElectronVue",
+    "appId": "org.songqy.ElectronVue",
+    "files": [
+      "build/",
+      "node_modules/",
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "msi"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "rpm",
+        "AppImage"
+      ],
+      "category": "Development"
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "electron-vue-demo",
+      "repo": "electron-vue-demo",
+      "private": false
+    }
+  }
+}
