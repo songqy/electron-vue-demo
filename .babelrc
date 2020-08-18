@@ -4,7 +4,15 @@
         "@babel/preset-typescript"
     ],
     "plugins": [
-        "@babel/plugin-transform-runtime"
+        "@babel/plugin-transform-runtime",
+        // "transform-vue-jsx", 
+        [
+            "component",
+            {
+                "libraryName": "element-ui",
+                "styleLibraryName": "theme-chalk"
+            }
+        ]
         // ["import", {
         //     "libraryName": "antd",
         //     "libraryDirectory": "es",

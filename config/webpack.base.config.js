@@ -5,6 +5,10 @@
 const path = require('path');
 const { dependencies: externals } = require('../package.json');
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir);
+}
+
 module.exports = {
   externals: [...Object.keys(externals || {})],
 
@@ -33,7 +37,12 @@ module.exports = {
    * Determine the array of extensions that should be used to resolve modules.
    */
   resolve: {
-    extensions: ['.js', '.json', '.ts'],
+    extensions: ['.js', '.json', '.ts', '.vue'],
     modules: [path.join(__dirname, '..', 'src'), 'node_modules'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+      '@c': resolve('src/renderer/components'),
+    },
   },
 };
