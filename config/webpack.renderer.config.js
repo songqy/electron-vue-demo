@@ -11,7 +11,7 @@ const srcPath = path.resolve(rootPath, 'src');
 module.exports = merge(baseConfig, {
   mode: 'development',
   devtool: 'inline-source-map',
-  entry: [path.resolve(srcPath, 'renderer/index.js')],
+  entry: [path.resolve(srcPath, 'index.js')],
   output: {
     path: path.resolve(rootPath, 'build'),
     filename: 'renderer.js',
@@ -91,7 +91,7 @@ module.exports = merge(baseConfig, {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'app.html',
-      template: path.resolve(srcPath, 'renderer/app.html'),
+      template: path.resolve(srcPath, 'app.html'),
       inject: true,
     }),
     new VueLoaderPlugin(),

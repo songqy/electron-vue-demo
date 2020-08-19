@@ -8,7 +8,7 @@ const srcPath = path.resolve(rootPath, 'src');
 module.exports = merge(baseConfig, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
-  entry: [path.resolve(srcPath, 'main/main.ts')],
+  entry: [path.resolve(srcPath, 'main.ts')],
   output: {
     path: path.resolve(rootPath, 'build'),
     filename: 'main.js',

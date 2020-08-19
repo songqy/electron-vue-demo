@@ -17,7 +17,7 @@ const publicPath = `http://localhost:${port}/dist`;
 module.exports = merge(baseConfig, {
   mode: 'development',
   devtool: 'inline-source-map',
-  entry: [path.resolve(srcPath, 'renderer/index.js')],
+  entry: [path.resolve(srcPath, 'index.js')],
   //   output: {
   //     path: path.resolve(rootPath, 'dist'),
   //     filename: 'renderer.js',
@@ -104,7 +104,7 @@ module.exports = merge(baseConfig, {
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve(srcPath, 'renderer/app.html'),
+      template: path.resolve(srcPath, 'app.html'),
       inject: true,
     }),
     new VueLoaderPlugin(),
