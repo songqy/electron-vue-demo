@@ -1,6 +1,6 @@
 // Modules to control application life and create native browser window
 import {app, BrowserWindow} from 'electron'
-// import path from 'path'
+import path from 'path'
 
 const installExtensions = async () => {
   const installer = require('electron-devtools-installer');
@@ -20,14 +20,14 @@ async function createWindow () {
     width: 1200,
     height: 800,
     webPreferences: {
-      // preload: path.join(__dirname, 'preload.js'),
+    //   preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
     }
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('app.html')
-  // mainWindow.loadURL(`file://${path.join(__dirname, 'app.html')}`);
+  // mainWindow.loadFile('app.html')
+  mainWindow.loadURL(`file://${path.join(__dirname, 'app.html')}`);
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
