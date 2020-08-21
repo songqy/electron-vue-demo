@@ -11,17 +11,13 @@ const rootPath = path.resolve(__dirname, '../');
 const srcPath = path.resolve(rootPath, 'src');
 
 
-const port = process.env.PORT || 1212;
+const port = process.env.PORT || 3341;
 const publicPath = `http://localhost:${port}/dist`;
 
 module.exports = merge(baseConfig, {
   mode: 'development',
   devtool: 'inline-source-map',
   entry: [path.resolve(srcPath, 'index.js')],
-  //   output: {
-  //     path: path.resolve(rootPath, 'dist'),
-  //     filename: 'renderer.js',
-  //   },
   output: {
     // path: path.resolve(rootPath, 'dist'),
     publicPath: `http://localhost:${port}/dist/`,
@@ -38,9 +34,6 @@ module.exports = merge(baseConfig, {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          // loaders: {
-          //   css: ['css-loader', 'postcss-loader'],
-          // },
         },
       },
       {

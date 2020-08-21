@@ -9,7 +9,7 @@ const rootPath = path.resolve(__dirname, '../');
 const srcPath = path.resolve(rootPath, 'src');
 
 module.exports = merge(baseConfig, {
-  mode: 'development',
+  mode: 'production',
   devtool: 'inline-source-map',
   entry: [path.resolve(srcPath, 'index.js')],
   output: {
@@ -27,9 +27,6 @@ module.exports = merge(baseConfig, {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          // loaders: {
-          //   css: ['css-loader', 'postcss-loader'],
-          // },
         },
       },
       {

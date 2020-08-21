@@ -9,19 +9,15 @@
     <script>
       if (typeof process === 'object' && process.env.NODE_ENV === 'development') {
         const link = document.createElement('link');
+        const port = process.env.PORT || 3341;
         link.rel = 'stylesheet';
-        link.href = 'http://localhost:1212/dist/style.css';
+        link.href = `http://localhost:${port}/dist/style.css`;
         // HACK: Writing the script path should be done with webpack
         document.getElementsByTagName('head')[0].appendChild(link);
       }
     </script>
   </head>
   <body>
-    <!-- <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>. -->
-
     <div id="app"></div>
     <script>
       if (typeof process === 'object') {
@@ -29,7 +25,8 @@
         if (process.env.NODE_ENV === 'development') {
           // Dynamically insert the DLL script in development env in the
           // renderer process
-          scripts.push('http://localhost:1212/dist/renderer.dev.js');
+          const port = process.env.PORT || 3341;
+          scripts.push(`http://localhost:${port}/dist/renderer.dev.js`);
         }
         if (scripts.length) {
           document.write(
