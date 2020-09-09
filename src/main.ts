@@ -1,4 +1,5 @@
 // Modules to control application life and create native browser window
+import 'dotenv/config';
 import { app, BrowserWindow } from 'electron';
 
 // const installExtensions = async () => {

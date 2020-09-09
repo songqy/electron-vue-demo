@@ -40,6 +40,12 @@ module.exports = {
       ],
       rules: {
         '@typescript-eslint/no-floating-promises': 0,
+        '@typescript-eslint/no-unsafe-return': 0,
+        '@typescript-eslint/no-explicit-any': 0,
+        '@typescript-eslint/no-unsafe-assignment': 0,
+        '@typescript-eslint/no-unsafe-call': 0,
+        '@typescript-eslint/no-unsafe-member-access': 0,
+        '@typescript-eslint/restrict-plus-operands': 0,
       },
     },
   ],
@@ -101,5 +107,4 @@ module.exports = {
       'node_modules',
     ],
   },
-}
-;
+};
